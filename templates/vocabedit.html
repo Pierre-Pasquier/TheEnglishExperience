@@ -1,0 +1,146 @@
+{% extends "index.html" %}
+{% block body %}
+
+
+
+       <!-- ====== Banner Section Start -->
+    <div
+      class="
+        relative
+        z-10
+        pt-[120px]
+        md:pt-[130px]
+        lg:pt-[160px]
+        pb-[100px]
+        bg-primary
+        overflow-hidden
+      "
+    >
+      <div class="container">
+        <div class="flex flex-wrap items-center -mx-4">
+          <div class="w-full px-4">
+            <div class="text-center">
+              <h1 class="font-semibold text-white text-4xl">Ajoutez les mots suivants aux listes</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="absolute top-0 left-0 z-[-1]">
+          <svg
+            width="495"
+            height="470"
+            viewBox="0 0 495 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="55"
+              cy="442"
+              r="138"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="50"
+            />
+            <circle
+              cx="446"
+              r="39"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="20"
+            />
+            <path
+              d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z"
+              stroke="white"
+              stroke-opacity="0.08"
+              stroke-width="12"
+            />
+          </svg>
+        </span>
+        <span class="absolute top-0 right-0 z-[-1]">
+          <svg
+            width="493"
+            height="470"
+            viewBox="0 0 493 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="462"
+              cy="5"
+              r="138"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="50"
+            />
+            <circle
+              cx="49"
+              cy="470"
+              r="39"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="20"
+            />
+            <path
+              d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z"
+              stroke="white"
+              stroke-opacity="0.06"
+              stroke-width="13"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <!-- ====== Banner Section End -->
+
+    <!-- Affichage de la liste de mots contenus dans mots -->
+
+    <!-- Ajout d'un formulaire pour ajouter des mots -->
+<div class="container" style="padding: 10px">
+  <div class="flex flex-wrap items-center -mx-4">
+    <div class="w-full px-4">
+      <div class="text-center">
+        <h1 class="font-semibold text-black text-4xl">Ajouter un mot</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<form action="/ajout/{{ id_vocab }}" method="post">
+  <div class="container">
+    <div class="flex flex-wrap items-center -mx-4">
+      <div class="w-full px-4">
+        <div class="text-center">
+          <input type="text" placeholder="Le mot" name="mot" id="mot" style="padding:5px;border-radius:5px;border:1px solid #ccc;margin-right:10px;" />
+          <input type="text" placeholder="La traduction" name="traduction" id="traduction" style="padding:5px;border-radius:5px;border:1px solid #ccc;margin-right:10px;" />
+          <input type="submit" value="Ajouter" style="background-color:#4CAF50;border:none;color:white;padding:8px 16px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;border-radius:5px;" />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+    <div class="container">
+      <div class="flex flex-wrap items-center -mx-4 my-8">
+        <div class="w-full px-4">
+          <div class="text-center">
+            <h1 class="font-semibold text-black text-4xl">Liste des mots</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% for mot in mots %}
+<div class="container">
+  <div class="flex flex-wrap items-center -mx-4 mb-8">
+    <div class="w-full px-4">
+      <div class="text-center" style="display:flex;align-items:center;justify-content:center;">
+        <h5 class="text-black text-4xl" style="margin-right:10px;">{{mot[0]}} -- {{ mot[1] }}</h5>
+        <a href="/suppression/{{mot[0]}}/{{id_vocab}}" style="background-color:red;padding:5px;border-radius:5px;color:white;text-decoration:none;">X</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+
+
+{% endblock %}

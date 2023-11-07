@@ -1,0 +1,421 @@
+{% extends 'index.html' %}
+{%  block body %}
+    {% if etat == 1 %}
+    <script type="text/javascript" >window.onload = function (){
+    var mtn = new Date();
+    var chiffre = mtn.getUTCDate();
+    console.log(chiffre);
+    for(var i=1;i<chiffre+1;i++){
+        let heure = document.getElementById(i.toString())
+        heure.className = "mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-lime-600 font-semibold text-white";
+    }
+     setInterval(diminuerTemps, 100)
+
+}
+
+  function diminuerTemps() {
+    var now = new Date();
+    let timerHour = document.getElementById("hour")
+    var heure   = ('0'+now.getHours()  ).slice(-2);
+    var minute  = ('0'+now.getMinutes()).slice(-2);
+    var seconde = ('0'+now.getSeconds()).slice(-2);
+    timerHour.innerText = ('0'+ (23-heure).toString()  ).slice(-2) + " : "+('0'+ (59 - minute).toString() ).slice(-2)   +" : "+('0'+ (59 - seconde).toString() ).slice(-2)
+
+}</script>{% else %}
+    <script type="text/javascript" >window.onload = function (){
+    var mtn = new Date();
+    var chiffre = {{ maximum }}
+    console.log(chiffre);
+    for(var i=1;i<chiffre;i++){
+        let heure = document.getElementById(i.toString())
+        heure.className = "mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-lime-600 font-semibold text-white";
+    }
+    let heure = document.getElementById(chiffre.toString())
+        heure.className = "mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-red-600 font-semibold text-white";
+
+
+}</script>
+    {% endif %}
+    <!-- ====== Banner Section Start -->
+    <div
+      class="
+        relative
+        z-10
+        pt-[120px]
+        md:pt-[130px]
+        lg:pt-[160px]
+        pb-[100px]
+        bg-primary
+        overflow-hidden
+      "
+    >
+      <div class="container">
+        <div class="flex flex-wrap items-center -mx-4">
+          <div class="w-full px-4">
+            <div class="text-center">
+              <h1 class="font-semibold text-white text-4xl">Ton tableau de bord</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="absolute top-0 left-0 z-[-1]">
+          <svg
+            width="495"
+            height="470"
+            viewBox="0 0 495 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="55"
+              cy="442"
+              r="138"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="50"
+            />
+            <circle
+              cx="446"
+              r="39"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="20"
+            />
+            <path
+              d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z"
+              stroke="white"
+              stroke-opacity="0.08"
+              stroke-width="12"
+            />
+          </svg>
+        </span>
+        <span class="absolute top-0 right-0 z-[-1]">
+          <svg
+            width="493"
+            height="470"
+            viewBox="0 0 493 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="462"
+              cy="5"
+              r="138"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="50"
+            />
+            <circle
+              cx="49"
+              cy="470"
+              r="39"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="20"
+            />
+            <path
+              d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z"
+              stroke="white"
+              stroke-opacity="0.06"
+              stroke-width="13"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <!-- ====== Banner Section End -->
+    <div>
+  <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+      <dt class="truncate text-sm font-medium text-gray-500">Etape de ton DDD</dt>
+        {% if etat==1 %}
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">Jour : {{ NBJOUR }}</dd>
+        {% else %}
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">Perdu !</dd>
+        {% endif %}
+    </div>
+
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+        {% if etat==1 %}
+      <dt class="truncate text-sm font-medium text-gray-500">Nb de pignoles</dt>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{{ PIGNOLE }} / {{ NBJOUR }}</dd>
+        {% else %}
+        <dt class="truncate text-sm font-medium text-gray-500">Nb total de pignoles</dt>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{{ PIGNOLE }}</dd>
+        {% endif %}
+    </div>
+
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+      <dt class="truncate text-sm font-medium text-gray-500">Temps restant du jour</dt>
+        {% if etat==1 %}
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><div id="hour">hour</div></dd>
+        {% else %}
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">Perdu !</dd>
+        {% endif %}
+    </div>
+  </dl>
+</div>
+<!-- PARTIE INTERACTION -->
+
+
+
+  <div class="bg-white">
+  <div class="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:py-16 lg:px-8">
+      {% if etat==1 %}
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <span class="block">T'as balancé la sauce ?</span>
+    </h2>
+    <div class="mt-8 flex justify-center">
+      <div class="inline-flex rounded-md shadow">
+        <a href="/add" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">J'ai tout laché !</a>
+      </div>
+    </div>
+      {% else %}
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <span class="block">Tu as perdu ton DDD ...</span>
+    </h2>
+      {% endif %}
+  </div>
+</div>
+
+<div class="mb-10 mx-10">
+  <div class="flex items-center">
+    <h2 class="flex-auto font-semibold text-gray-900">DDD 2022</h2>
+
+  </div>
+  <div class="mt-10 grid grid-cols-7 text-center text-xs leading-6 text-gray-500">
+    <div>S</div>
+    <div>D</div>
+    <div>L</div>
+    <div>M</div>
+    <div>M</div>
+    <div>J</div>
+    <div>V</div>
+  </div>
+  <div id="calendar" class="mt-2 grid grid-cols-7 text-sm fadeInUp">
+    <div class="py-2">
+      <!--
+        Always include: "mx-auto flex h-8 w-8 items-center justify-center rounded-full"
+        Is selected, include: "text-white"
+        Is not selected and is today, include: "text-indigo-600"
+        Is not selected and is not today and is current month, include: "text-gray-900"
+        Is not selected and is not today and is not current month, include: "text-gray-400"
+        Is selected and is today, include: "bg-indigo-600"
+        Is selected and is not today, include: "bg-gray-900"
+        Is not selected, include: "hover:bg-gray-200"
+        Is selected or is today, include: "font-semibold"
+      -->
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2021-12-27">26</time>
+      </button>
+    </div>
+    <div class="py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2021-12-28">27</time>
+      </button>
+    </div>
+    <div class="py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2021-12-29">28</time>
+      </button>
+    </div>
+    <div class="py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2021-12-30">29</time>
+      </button>
+    </div>
+    <div class="py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2021-12-31">30</time>
+      </button>
+    </div>
+    <div  class="py-2">
+      <button id="1" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-01">1</time>
+      </button>
+    </div>
+    <div class="py-2">
+      <button id="2" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-02">2</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="3" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-03">3</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="4" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-04">4</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="5" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-05">5</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="6" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-06">6</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="7" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-07">7</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="8" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-08">8</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="9" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-09">9</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="10" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-10">10</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="11" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-11">11</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="12" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-12">12</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="13" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-13">13</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="14" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-14">14</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="15" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-15">15</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="16" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-16">16</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="17" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-17">17</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="18" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-18">18</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="19" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-19">19</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="20" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-20">20</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="21" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-21">21</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="22" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-22">22</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="23" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-23">23</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="24" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-24">24</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="25" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-25">25</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="26" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-26">26</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="27" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-27">27</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="28" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-28">28</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="29" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-29">29</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="30" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-30">30</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button id="31" type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-900 hover:bg-gray-200">
+        <time datetime="2022-01-31">31</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2022-02-01">1</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2022-02-02">2</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2022-02-03">3</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2022-02-04">4</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2022-02-05">5</time>
+      </button>
+    </div>
+    <div class="border-t border-gray-200 py-2">
+      <button type="button" class="mx-auto flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-200">
+        <time datetime="2022-02-06">6</time>
+      </button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

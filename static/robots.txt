@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /rapport
+
+User-agent: *
+Disallow: /challenge
+
+User-agent: *
+Disallow: /scoreboard

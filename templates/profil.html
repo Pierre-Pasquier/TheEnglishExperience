@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+{%  block body %}
+
+<div
+      class="
+        relative
+        z-10
+        pt-[120px]
+        md:pt-[130px]
+        lg:pt-[160px]
+        pb-[100px]
+        bg-primary
+        overflow-hidden
+      "
+    ><div class="container">
+        <div class="flex flex-wrap items-center -mx-4">
+          <div class="w-full px-4">
+            <div class="text-center">
+              <h1 class="font-semibold text-white text-4xl">Ton profil</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+    <main style="max-width: 800px; margin: 0 auto; padding: 1rem;">
+      <section style="margin-bottom: 2rem; background-color: #fff; border: 1px solid #ccc; border-radius: 5px; padding: 1rem;">
+        <h2 style="margin-top: 0; font-size: 1.5rem;">Informations de profil</h2>
+        <p>Nom : Jean Dupont</p>
+        <p>Âge : 28 ans</p>
+        <p>Email : jean.dupont@gmail.com</p>
+        <p>Ville : Paris</p>
+      </section>
+      <section style="margin-bottom: 2rem; background-color: #fff; border: 1px solid #ccc; border-radius: 5px; padding: 1rem;">
+        <h2 style="margin-top: 0; font-size: 1.5rem;">Mes publications</h2>
+        <ul>
+          <li>Titre de la publication 1</li>
+          <li>Titre de la publication 2</li>
+          <li>Titre de la publication 3</li>
+        </ul>
+      </section>
+      <section style="margin-bottom: 2rem; background-color: #fff; border: 1px solid #ccc; border-radius: 5px; padding: 1rem;">
+        <h2 style="margin-top: 0; font-size: 1.5rem;">Mes statistiques</h2>
+        <table style="border-collapse: collapse; width: 100%; margin-bottom: 2rem;">
+          <thead>
+            <tr>
+              <th style="background-color: #333; color: #fff; padding: 0.5rem; text-align: left;">Statistique</th>
+              <th style="background-color: #333; color: #fff; padding: 0.5rem; text-align: left;">Valeur</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.5rem; text-align: left;">Nombre de publications</td>
+              <td style="padding: 0.5rem; text-align: left;">3</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.5rem; text-align: left;">Nombre de vues</td>
+              <td style="padding: 0.5rem; text-align: left;">1,234</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+
+{% endblock %}

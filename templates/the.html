@@ -1,0 +1,302 @@
+{% extends "index.html" %}
+{% block body %}
+
+    <style>
+			h1 {
+				font-size: 2.5rem;
+				font-weight: bold;
+				text-align: center;
+				margin-top: 2rem;
+			}
+			h2 {
+				font-size: 1.5rem;
+				font-weight: bold;
+				margin-top: 1.5rem;
+			}
+			p {
+				font-size: 1.2rem;
+				line-height: 1.5;
+				margin-top: 1rem;
+			}
+			ul {
+				font-size: 1.2rem;
+				line-height: 1.5;
+				margin-top: 1rem;
+				margin-left: 2rem;
+			}
+			.list {
+				list-style: disc;
+			}
+		</style>
+
+    <div
+      class="
+        relative
+        z-10
+        pt-[120px]
+        md:pt-[130px]
+        lg:pt-[160px]
+        pb-[100px]
+        bg-primary
+        overflow-hidden
+      "
+    >
+      <div class="container">
+        <div class="flex flex-wrap items-center -mx-4">
+          <div class="w-full px-4">
+            <div class="text-center">
+              <h1 class="font-semibold text-white text-4xl" id="Titre">L'utilisation de the</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="absolute top-0 left-0 z-[-1]">
+          <svg
+            width="495"
+            height="470"
+            viewBox="0 0 495 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="55"
+              cy="442"
+              r="138"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="50"
+            />
+            <circle
+              cx="446"
+              r="39"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="20"
+            />
+            <path
+              d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z"
+              stroke="white"
+              stroke-opacity="0.08"
+              stroke-width="12"
+            />
+          </svg>
+        </span>
+        <span class="absolute top-0 right-0 z-[-1]">
+          <svg
+            width="493"
+            height="470"
+            viewBox="0 0 493 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="462"
+              cy="5"
+              r="138"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="50"
+            />
+            <circle
+              cx="49"
+              cy="470"
+              r="39"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="20"
+            />
+            <path
+              d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z"
+              stroke="white"
+              stroke-opacity="0.06"
+              stroke-width="13"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+
+
+<div class="container">
+        <h1>Utilisation de "the" en anglais</h1>
+        <p>En anglais, l'article défini "the" est utilisé pour désigner un objet spécifique, déjà connu du locuteur et de l'interlocuteur. Il peut être placé devant un nom commun singulier ou pluriel.</p>
+        <h2>Exemples :</h2>
+        <ul>
+            <li class="list">The cat is sleeping on the couch. (Le chat dort sur le canapé.)</li>
+            <li class="list">I need to buy the groceries for tonight's dinner. (J'ai besoin d'acheter les courses pour le dîner de ce soir.)</li>
+            <li class="list">They're going to the cinema tonight. (Ils vont au cinéma ce soir.)</li>
+        </ul>
+        <p>Dans certains cas, "the" peut également être utilisé pour parler d'un groupe de personnes ou de choses spécifiques.</p>
+        <h2>Exemples :</h2>
+        <ul>
+            <li class="list">The students in my class are very hardworking. (Les élèves de ma classe sont très travailleurs.)</li>
+            <li class="list">I love listening to the Beatles. (J'adore écouter les Beatles.)</li>
+            <li class="list">The cars on this street are all very expensive. (Les voitures de cette rue sont toutes très chères.)</li>
+        </ul>
+        <p>En revanche, "the" ne doit pas être utilisé dans les cas suivants :</p>
+        <ul>
+            <li class="list">Avant les noms propres : <em>John is my friend</em>, et non <em>The John is my friend</em></li>
+            <li class="list">Devant les noms de langues : <em>I speak French</em>, et non <em>I speak the French</em></li>
+            <li class="list">Devant les noms de sports, excepté si le nom est précédé d'un adjectif : <em>I play football</em>, et non <em>I play the football</em>. Mais on peut dire <em>I play the beautiful game of football</em>.</li>
+        </ul>
+</div>
+
+    <h2>Exercices</h2>
+
+<form method="POST">
+    <div>
+        <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+            <fieldset>
+                <legend>Question 1 : Quel est le rôle de 'the' en anglais ?</legend>
+                <label for="q1">Choisissez la réponse qui convient :</label>
+                <select type="text"
+                        class="
+                          w-max
+                          text-center
+                          h-[50px]
+                          text-sm
+                          font-medium
+                          bg-white bg-opacity-20
+                          placeholder-white
+                          text-black
+                          rounded
+                          mb-4
+                          mx-10
+                          outline-yes
+                          border border-black
+                          focus-visible:shadow-none
+                          focus:border-white
+                        "
+                    name="q1" id="q1" required>
+                    <option value="1" name="q1">Article indéfini</option>
+                    <option value="2" name="q1">Article défini</option>
+                    <option value="3" name="q1">Pronom personnel</option>
+                    <option value="4" name="q1">Préposition</option>
+                </select>
+            </fieldset>
+        </div>
+        {% if correct[0] == 1 %}
+            <div style="color:green">Bonne réponse !</div>
+        {% elif correct[0] == 0 %}
+            <div style="color:red">Mauvaise réponse ! La bonne réponse était "Article défini"</div>
+    {% else %}
+        {% endif %}
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-1">
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+    <fieldset>
+        <legend>Question 2 : Peut-on utiliser 'the' avec des noms propres en anglais ?</legend>
+        <label for="q3">Répondez par oui ou par non :</label>
+        <input type="radio" name="q2" id="q2_oui" value="oui" required> <label for="q2_oui">Oui</label>
+        <input type="radio" name="q2" id="q2_non" value="non"> <label for="q2_non">Non</label>
+    </fieldset></div></dl>
+    {% if correct[1] == 1 %}
+        <div style="color:green">Bonne réponse !</div>
+    {% elif correct[1] == 0 %}
+        <div style="color:red">Mauvaise réponse ! La bonne réponse était "oui"</div>
+    {% else %}
+    {% endif %}
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-1">
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+    <fieldset>
+        <legend>Question 3 : Est-ce que "The" est utilisé avant un nom spécifique ?</legend>
+        <label for="q3">Répondez par oui ou par non :</label>
+        <input type="radio" name="q3" id="q3_oui" value="oui" required> <label for="q3_oui">Oui</label>
+        <input type="radio" name="q3" id="q3_non" value="non"> <label for="q3_non">Non</label>
+    </fieldset></div></dl>
+    {% if correct[2] == 1 %}
+        <div style="color:green">Bonne réponse !</div>
+    {% elif correct[2] == 0 %}
+        <div style="color:red">Mauvaise réponse ! La bonne réponse était "oui"</div>
+    {% else %}
+    {% endif %}
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-1">
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+    <fieldset>
+        <legend>Question 4 : Dans quels cas doit-on utiliser 'the' avec des noms de lieux en anglais ?</legend>
+        <label for="q4">Choisissez la réponse qui convient :</label>
+        <select  type="text"
+                    class="
+                      w-max
+                      text-center
+                      h-[50px]
+                      text-sm
+                      font-medium
+                      bg-white bg-opacity-20
+                      placeholder-white
+                      text-black
+                      rounded
+                      mb-4
+                      mx-10
+                      outline-yes
+                      border border-black
+                      focus-visible:shadow-none
+                      focus:border-white
+                    "
+                name="q4" id="q4" required>
+            <option value="">-- Choisissez une réponse --</option>
+            <option value="1" name="q4">Pour les noms de pays</option>
+            <option value="2" name="q4">Pour les noms de villes</option>
+            <option value="3" name="q4">Pour les noms de régions géographiques (montagnes, rivières, océans...)</option>
+            <option value="4" name="q4">Pour tous les noms de lieux en anglais</option>
+        </select>
+    </fieldset></div></dl>
+    {% if correct[3] == 1 %}
+        <div style="color:green">Bonne réponse !</div>
+    {% elif correct[3] == 0 %}
+        <div style="color:red">Mauvaise réponse ! La bonne réponse était "Pour tous les noms de lieux en anglais" </div>
+    {% else %}
+    {% endif %}
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-1">
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+    <fieldset>
+        <legend>Question 5 : Peut-on utiliser 'the' avec des noms incountables et indénombrables en anglais ?</legend>
+        <label for="q5">Répondez par oui ou par non :</label>
+        <input type="radio" name="q5" id="q5_oui" value="oui" required> <label for="q5_oui">Oui</label>
+        <input type="radio" name="q5" id="q5_non" value="non"> <label for="q5_non">Non</label>
+    </fieldset></div></dl></div>
+    {% if correct[4] == 1 %}
+        <div style="color:green">Bonne réponse !</div>
+    {% elif correct[4] == 0 %}
+        <div style="color:red">Mauvaise réponse ! La bonne réponse était "oui"</div>
+    {% else %}
+    {% endif %}
+    <br><br><br>
+
+    {% if correct[0] != 1 and correct[0] != 0 %}
+	<input type="submit"
+       name="Valider les réponses"
+       class="
+         w-max
+         text-center
+         h-[50px]
+         text-sm
+         font-medium
+         bg-white bg-opacity-20
+         placeholder-white
+         text-black
+         rounded
+         mb-4
+         mx-10
+         outline-yes
+         border border-black
+         focus-visible:shadow-none
+         focus:border-white
+         px-4
+       "
+       value="Valider les réponses">
+    {% else %}
+    <div class="container">
+        <div class="flex flex-wrap items-center -mx-4 my-8">
+            <div class="w-full px-4">
+                <div class="text-center">
+                    <a href="/apprentissage" class="bg-primary text-white px-4 py-3 rounded-lg">Retour aux leçons</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</form>
+
+{% endblock %}

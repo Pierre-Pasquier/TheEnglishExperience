@@ -1,0 +1,332 @@
+{% extends "index.html" %}
+{% block body %}
+
+    <style>
+			h1 {
+				font-size: 2.5rem;
+				font-weight: bold;
+				text-align: center;
+				margin-top: 2rem;
+			}
+			h2 {
+				font-size: 1.5rem;
+				font-weight: bold;
+				margin-top: 1.5rem;
+			}
+			p {
+				font-size: 1.2rem;
+				line-height: 1.5;
+				margin-top: 1rem;
+			}
+			ul {
+				font-size: 1.2rem;
+				line-height: 1.5;
+				margin-top: 1rem;
+				margin-left: 2rem;
+			}
+			.list {
+				list-style: disc;
+			}
+		</style>
+
+    <div
+      class="
+        relative
+        z-10
+        pt-[120px]
+        md:pt-[130px]
+        lg:pt-[160px]
+        pb-[100px]
+        bg-primary
+        overflow-hidden
+      "
+    >
+      <div class="container">
+        <div class="flex flex-wrap items-center -mx-4">
+          <div class="w-full px-4">
+            <div class="text-center">
+              <h1 class="font-semibold text-white text-4xl" id="Titre">Le Present Perfect</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="absolute top-0 left-0 z-[-1]">
+          <svg
+            width="495"
+            height="470"
+            viewBox="0 0 495 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="55"
+              cy="442"
+              r="138"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="50"
+            />
+            <circle
+              cx="446"
+              r="39"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="20"
+            />
+            <path
+              d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z"
+              stroke="white"
+              stroke-opacity="0.08"
+              stroke-width="12"
+            />
+          </svg>
+        </span>
+        <span class="absolute top-0 right-0 z-[-1]">
+          <svg
+            width="493"
+            height="470"
+            viewBox="0 0 493 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="462"
+              cy="5"
+              r="138"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="50"
+            />
+            <circle
+              cx="49"
+              cy="470"
+              r="39"
+              stroke="white"
+              stroke-opacity="0.04"
+              stroke-width="20"
+            />
+            <path
+              d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z"
+              stroke="white"
+              stroke-opacity="0.06"
+              stroke-width="13"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+
+
+<div>
+<h1>Le Present Perfect</h1>
+    <p>Le Present Perfect est un temps utilisé pour parler d'actions qui ont commencé dans le passé et qui ont une certaine continuité jusqu'à maintenant.</p>
+    <h2>Formation du Present Perfect</h2>
+    <p>Le Present Perfect est formé en utilisant l'auxiliaire "have" ou "has" suivi du participe passé du verbe principal.</p>
+    <ul>
+      <li>Pour les verbes réguliers, le participe passé est formé en ajoutant "-ed" à la fin du verbe.</li>
+      <li>Pour les verbes irréguliers, il n'y a pas de règle et il faut les apprendre par cœur.</li>
+    </ul>
+    <p>Exemples :</p>
+    <ul>
+      <li>I have studied English for 3 years.</li>
+      <li>She has lived in New York for 10 years.</li>
+      <li>They have seen that movie 3 times.</li>
+    </ul>
+
+    <h2>Utilisation du Present Perfect</h2>
+    <p>Le Present Perfect est utilisé dans les situations suivantes :</p>
+    <ul>
+      <li>Pour parler d'une action qui a commencé dans le passé et qui continue jusqu'à maintenant.</li>
+      <li>Pour parler d'une action qui a eu lieu à un moment indéterminé dans le passé.</li>
+      <li>Pour parler d'une action qui a eu lieu dans le passé, mais qui a une influence sur le présent.</li>
+    </ul>
+    <p>Exemples :</p>
+    <ul>
+      <li>I have been a teacher for 5 years.</li>
+      <li>He has traveled to many countries.</li>
+      <li>We have finished our homework, so we can relax now.</li>
+    </ul>
+</div>
+    <h2>Exercices</h2>
+
+<form method="POST">
+    <div>
+        <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+            <fieldset>
+                <legend>Question 1 : Quel est le participe passé du verbe "to study" ?</legend>
+                <label for="q1">Choisissez la réponse qui convient :</label>
+                <select type="text"
+                        class="
+                          w-max
+                          text-center
+                          h-[50px]
+                          text-sm
+                          font-medium
+                          bg-white bg-opacity-20
+                          placeholder-white
+                          text-black
+                          rounded
+                          mb-4
+                          mx-10
+                          outline-yes
+                          border border-black
+                          focus-visible:shadow-none
+                          focus:border-white
+                        "
+                    name="q1" id="q1" required>
+                    <option value="" name="q1">-- Choisissez une réponse --</option>
+                    <option value="1" name="q1">studied</option>
+                    <option value="2" name="q1">studying</option>
+                    <option value="3" name="q1">study</option>
+                </select>
+            </fieldset>
+        </div>
+        {% if correct[0] == 1 %}
+            <div style="color:green">Bonne réponse !</div>
+        {% elif correct[0] == 0 %}
+            <div style="color:red">Mauvaise réponse ! La bonne réponse était "studied"</div>
+    {% else %}
+        {% endif %}
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-1">
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+    <fieldset>
+        <legend>Question 2 : Quel est l'objectif principal du Present Perfect en anglais ?</legend>
+        <label for="q2">Choisissez la réponse qui convient :</label>
+        <select type="text"
+                    class="
+                      w-max
+                      text-center
+                      h-[50px]
+                      text-sm
+                      font-medium
+                      bg-white bg-opacity-20
+                      placeholder-white
+                      text-black
+                      rounded
+                      mb-4
+                      mx-10
+                      outline-yes
+                      border border-black
+                      focus-visible:shadow-none
+                      focus:border-white
+                    "
+                name="q2" id="q2" required>
+            <option value="">-- Choisissez une réponse --</option>
+            <option value="1" name="q2">Décrire une expérience passée</option>
+            <option value="2" name="q2">Décrire une action en cours dans le présent</option>
+            <option value="3" name="q2">Décrire une action passée avec une importance dans le présent</option>
+            <option value="4" name="q2">Décrire une action qui se répète dans le passé</option>
+        </select>
+    </fieldset></div></dl>
+    {% if correct[1] == 1 %}
+        <div style="color:green">Bonne réponse !</div>
+    {% elif correct[1] == 0 %}
+        <div style="color:red">Mauvaise réponse ! La bonne réponse était "Décrire une action passée avec une importance dans le présent"</div>
+    {% else %}
+    {% endif %}
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-1">
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+    <fieldset>
+        <legend>Question 3 : Choisissez la réponse correcte pour compléter les phrases suivantes :</legend>
+        <label for="q3">We have ___________ (been/made) friends since childhood.</label>
+        <input type="radio" name="q3" id="q3_oui" value="oui" required> <label for="q3_oui">been</label>
+        <input type="radio" name="q3" id="q3_non" value="non"> <label for="q3_non">made</label>
+    </fieldset></div></dl>
+    {% if correct[2] == 1 %}
+        <div style="color:green">Bonne réponse !</div>
+    {% elif correct[2] == 0 %}
+        <div style="color:red">Mauvaise réponse ! La bonne réponse était "been" </div>
+    {% else %}
+    {% endif %}
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-1">
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+    <fieldset>
+        <legend>Question 4 : Comment forme-t-on le present perfect en anglais?</legend>
+        <label for="q4">Choisissez la réponse qui convient :</label>
+        <select  type="text"
+                    class="
+                      w-max
+                      text-center
+                      h-[50px]
+                      text-sm
+                      font-medium
+                      bg-white bg-opacity-20
+                      placeholder-white
+                      text-black
+                      rounded
+                      mb-4
+                      mx-10
+                      outline-yes
+                      border border-black
+                      focus-visible:shadow-none
+                      focus:border-white
+                    "
+                name="q4" id="q4" required>
+            <option value="">-- Choisissez une réponse --</option>
+            <option value="1" name="q4">Sujet + verbe au participe passé + auxiliaire "have" ou "has"</option>
+            <option value="2" name="q4">Sujet + verbe au participe présent + auxiliaire "have" ou "has"</option>
+            <option value="3" name="q4">Sujet + verbe au participe passé + auxiliaire "do" ou "does"</option>
+        </select>
+    </fieldset></div></dl>
+    {% if correct[3] == 1 %}
+        <div style="color:green">Bonne réponse !</div>
+    {% elif correct[3] == 0 %}
+        <div style="color:red">Mauvaise réponse ! La bonne réponse était "Sujet + verbe au participe passé + auxiliaire 'have' ou 'has'"</div>
+    {% else %}
+    {% endif %}
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-1">
+    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+    <fieldset>
+        <legend>Question 5 : Choisissez la réponse correcte pour compléter les phrases suivantes :</legend>
+        <label for="q5"> I ___________ (have/has) never been to Japan.</label>
+        <input type="radio" name="q5" id="q5_oui" value="oui" required> <label for="q5_oui">have</label>
+        <input type="radio" name="q5" id="q5_non" value="non"> <label for="q5_non">has</label>
+    </fieldset></div></dl></div>
+    {% if correct[4] == 1 %}
+        <div style="color:green">Bonne réponse !</div>
+    {% elif correct[4] == 0 %}
+        <div style="color:red">Mauvaise réponse ! La bonne réponse était "have"</div>
+    {% else %}
+    {% endif %}
+    <br><br><br>
+
+    {% if correct[0] != 1 and correct[0] != 0 %}
+	<input type="submit"
+       name="Valider les réponses"
+       class="
+         w-max
+         text-center
+         h-[50px]
+         text-sm
+         font-medium
+         bg-white bg-opacity-20
+         placeholder-white
+         text-black
+         rounded
+         mb-4
+         mx-10
+         outline-yes
+         border border-black
+         focus-visible:shadow-none
+         focus:border-white
+         px-4
+       "
+       value="Valider les réponses">
+    {% else %}
+    <div class="container">
+        <div class="flex flex-wrap items-center -mx-4 my-8">
+            <div class="w-full px-4">
+                <div class="text-center">
+                    <a href="/apprentissage" class="bg-primary text-white px-4 py-3 rounded-lg">Retour aux leçons</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</form>
+</div>
+
+
+{% endblock %}
